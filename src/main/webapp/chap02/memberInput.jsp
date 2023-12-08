@@ -39,7 +39,7 @@ body {
 <body>
 	<div class="container">
 		<div class="input-form-backgroud row">
-			<div class="input-form col-md-12 mx-auto">
+			<div class="input-form col-md-2 mx-auto">
 				<h4 class="mb-3">회원가입</h4>
 				<form class="validation-form" novalidate      action="memberPro.jsp">
 					<div class="row">
@@ -100,9 +100,7 @@ body {
 				</form>
 			</div>
 		</div>
-		<footer class="my-3 text-center text-small">
-			<p class="mb-1">&copy; 2021 YD</p>
-		</footer>
+		
 	</div>
 	<script> window.addEventListener('load', () => { const forms = document.getElementsByClassName('validation-form'); Array.prototype.filter.call(forms, (form) => { form.addEventListener('submit', function (event) { if (form.checkValidity() === false) { event.preventDefault(); event.stopPropagation(); } form.classList.add('was-validated'); }, false); }); }, false); </script>
 </body>
