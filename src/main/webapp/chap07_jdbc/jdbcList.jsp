@@ -14,11 +14,15 @@
 </head>
 <body>
 <%
+
 Class.forName("oracle.jdbc.OracleDriver");
+
 Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "kic", "1111");
+
 PreparedStatement pstmt = conn.prepareStatement("select * from emp");
 
 ResultSet rs = pstmt.executeQuery();
+
 ResultSetMetaData rscol = rs.getMetaData();  //column name
 %>
 <table class="w3-table-all">
