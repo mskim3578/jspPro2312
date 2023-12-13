@@ -35,20 +35,20 @@ body {
 	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
 }
 </style>
-</head>
+</head> 
+
 <body>
 	<div class="container">
 		<div class="input-form-backgroud row">
 			<div class="input-form col-md-12 mx-auto">
 				<h4 class="mb-3">회원가입</h4>
-				<form class="validation-form" novalidate      action="memberPro.jsp">
+				<form class="validation-form" novalidate      action="memberPro.jsp"   method="post">
 					<div class="row">
-					   <div class="col-md-6 mb-3">
-							<label for="id">아이디</label> <input type="text"
-								class="form-control" id="id" placeholder="아이디" value="" required  name="id">
-							<div class="invalid-feedback">아이디을 입력해주세요.</div>
+					   <div class="col-md-3 mb-3">
+							<label for="id">사진</label> <img src=""  width="100px"  height="120px">
+							<button   class="btn btn-primary  btn-block">사진업로드</button>
 						</div>
-						<div class="col-md-6 mb-3">
+						<div class="col-md-9 mb-3">
 						<div class="row">
 						<div class="col-md-6 mb-3">
 							<label for="id">아이디</label> <input type="text"

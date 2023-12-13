@@ -29,7 +29,7 @@ kicmem.setEmail(email);
 
 MemberDao md = new  MemberDao();
 int num = md.insertMember(kicmem);
-
-%><%=num %>
+response.sendRedirect(request.getContextPath()+"/chap08member/loginForm.jsp");
+%>
 </body>
 </html>

@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -61,4 +62,77 @@ picture varchar(200));
 		
 		
 	}
+	
+	public KicMember oneMember(String id) throws SQLException {
+		System.out.println(id);
+		Connection conn = getConnection();
+		PreparedStatement pstmt = conn.prepareStatement(" select * from kicmember where id = ? ");
+		pstmt.setString(1, id);
+		ResultSet rs = pstmt.executeQuery();
+		if (rs.next()) {			
+			KicMember m = new KicMember();
+			m.setId(rs.getString("id"));
+			m.setPass(rs.getString("pass"));
+			m.setName(rs.getString("name"));
+			m.setGender(rs.getInt("gender"));
+			m.setTel(rs.getString("tel"));
+			m.setEmail(rs.getString("email"));
+			System.out.println(m);
+			return m;			
+		}		
+		return null;
+	}
+	
+	public int updateMember(KicMember kicmem) throws UnsupportedEncodingException, SQLException {
+
+		Connection conn = getConnection();
+		    String sql = "update kicmember set name=?, gender=?, tel=?, email=? where id = ?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			// mapping
+		
+			pstmt.setString(1, kicmem.getName());
+			pstmt.setInt(2, kicmem.getGender());
+			pstmt.setString(3, kicmem.getTel());
+			pstmt.setString(4, kicmem.getEmail());
+			pstmt.setString(5, kicmem.getId());
+			
+			// 4) excute
+			int num = pstmt.executeUpdate();
+			return num;
+
+		
+		
+	}
+	
+	public int deleteMember(String id) throws UnsupportedEncodingException, SQLException {
+
+		Connection conn = getConnection();
+		    String sql = "delete kicmember  where id = ?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			// mapping			
+			pstmt.setString(1,id);
+			
+			// 4) excute
+			int num = pstmt.executeUpdate();
+			return num;	
+		
+	}
+	
+	public int passMember(String id, String chgpass) throws UnsupportedEncodingException, SQLException {
+
+		Connection conn = getConnection();
+		    String sql = " update kicmember  set pass=? where id = ?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			// mapping			
+			pstmt.setString(1,chgpass);
+			pstmt.setString(2,id);
+			
+			// 4) excute
+			int num = pstmt.executeUpdate();
+			return num;	
+		
+	}
+	
+	
+	
 } //class end
