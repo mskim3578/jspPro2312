@@ -42,7 +42,6 @@
       
       
       <jsp-config> 
-    <!--      
          <taglib>
 			<taglib-uri>
 				/WEB-INF/tlds/el-functions.tld
@@ -52,11 +51,12 @@
 			</taglib-location>
 		</taglib>        
       
-      	<jsp-property-group>
-			<url-pattern>/chap09/oldversion/*</url-pattern>
-			<el-ignored>true</el-ignored>
-		</jsp-property-group>
-      -->
+      
+      
+      <jsp-property-group>
+            <url-pattern>/chap09/oldversion/*</url-pattern>
+            <el-ignored>true</el-ignored>
+        </jsp-property-group>
        
        <jsp-property-group>
 			<url-pattern>/chap08member/*</url-pattern>
@@ -66,30 +66,9 @@
              
 	</jsp-config> 
  
-   <servlet>   
-   <servlet-name>now</servlet-name>
-   <servlet-class>ch11.NowServlet</servlet-class>
-   </servlet>   
-   <servlet-mapping>   
-   <servlet-name>now</servlet-name>
-   <url-pattern>/now</url-pattern>
-   </servlet-mapping>
-   
-   
- <servlet>   
-   <servlet-name>path</servlet-name>
-   <servlet-class>ch12.ControllerUsingURI</servlet-class>
-   <init-param>
-   <param-name>configFile</param-name>
-   <param-value>/WEB-INF/commandHandler.properties</param-value>
-   </init-param>
-   </servlet>  
-   
-   <servlet-mapping>   
-   <servlet-name>path</servlet-name>
-   <url-pattern>/member/*</url-pattern>  
-   </servlet-mapping>
-<!-- /project명/member/aaaa -->
+ 
+ 
+
  
  
  
